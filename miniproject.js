@@ -261,6 +261,28 @@
 // 14. Complex Array Manipulation
 // Given an array of users, where each user has a name and an array of hobbies, create a
 // function that returns an array of all unique hobbies using reduce.
+function getAllUniqueHobbies(users) {
+    // Use reduce to accumulate all hobbies into a single array
+    const allHobbies = users.reduce((accumulator, user) => {
+      // Concatenate the hobbies of the current user to the accumulator array
+      return accumulator.concat(user.hobbies);
+    }, []);
+  
+    // Use Set to remove duplicates and then convert back to array
+    const uniqueHobbies = [...new Set(allHobbies)];
+  
+    return uniqueHobbies;
+  }
+  
+  const users = [
+    { name: 'Jorin', hobbies: ['reading', 'swimming', 'cooking'] },
+    { name: 'Bian', hobbies: ['swimming', 'painting', 'gardening'] },
+    { name: 'Marie', hobbies: ['reading', 'cooking', 'gardening'] }
+  ];
+  
+  const uniqueHobbies = getAllUniqueHobbies(users);
+  console.log(uniqueHobbies);
+  
 
 // // Conceptual Questions:
 // // Why are promises used in JavaScript? Explain the advantages of using promises over traditional callback functions.
@@ -288,10 +310,23 @@
 // myClosure(); 
 
 // // 3. What is a callback function and why is it used in JavaScript?
-//A callback function is a function that is passed as an argument to another function and is executed after some asynchronous operation or at a later time in the program's execution
-// // 4. What are async/await in JavaScript and how do they improve asynchronous
-// // programming?
+//A callback function is a function that is passed as an argument to another function and is executed after some asynchronous operation or at a later time in the program's execution.
+// Callback functions are important in JavaScript because they let you create asynchronous code that doesn't block the main thread of execution.
+
+// // 4. What are async/await in JavaScript and how do they improve asynchronous programming?
+// The async keyword transforms a regular JavaScript function into an asynchronous function, causing it to return a Promise.
+//  The await keyword is used inside an async function to pause its execution and wait for a Promise to resolve before continuing.
 
 // // 5. Write the difference between ES6 and JS.
+// ES6 is a specific version of the ECMAScript standard that introduced many new features and improvements to the JavaScript language.
+//  JavaScript is the language itself which includes the implementation of the ECMAScript standard along with other specifications for web development.
+//  ES6 is part of JavaScript's evolution, and developers commonly refer to features introduced in ES6 and later versions as part of modern JavaScript programming.
+
 // // 6. What are some of the major features introduced in ES6?
+// major features introduced in ES6 are:
+// Arrow Functions
+// Rest Parameters and Spread Syntax
+// Promises
+// Default Parameters
+// Block-Scoped Variables (let and const)
 
